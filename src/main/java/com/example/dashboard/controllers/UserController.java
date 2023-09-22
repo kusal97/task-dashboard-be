@@ -1,7 +1,6 @@
 package com.example.dashboard.controllers;
 
 import com.example.dashboard.models.User;
-import com.example.dashboard.repositories.UserRepository;
 import com.example.dashboard.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
