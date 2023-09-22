@@ -9,12 +9,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String summary;
+
+    private String description;
+
+    private String priority;
+
+    private String status;
+
+    private Long user_id;
 
 }

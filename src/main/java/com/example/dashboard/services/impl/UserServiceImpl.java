@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
         try{
             return userRepository.findAll();
         }catch (Exception exception){
-            throw exception;
+            throw new RuntimeException(exception);
         }
     }
 
