@@ -47,10 +47,15 @@ public class TaskServiceImpl implements TaskService {
     public Task updateTask(Task task, Long id) {
         try{
             Task existingTask = taskRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
-            existingTask.setSummary(task.getSummary());
-            existingTask.setDescription(task.getDescription());
-            existingTask.setPriority(task.getPriority());
-            existingTask.setStatus(task.getStatus());
+            if(task.getSummary() != null) {
+                existingTask.setSummary(task.getSummary());
+            } else if (task.getDescription() != null) {
+                existingTask.setDescription(task.getDescription());
+            } else if ( task.getPriority() != null){
+                existingTask.setPriority(task.getPriority());
+            } else if ( task.getStatus() != null) {
+                existingTask.setStatus(task.getStatus());
+            }
             existingTask.setUser_id(task.getUser_id());
             return taskRepository.save(existingTask);
         }catch (Exception exception){
